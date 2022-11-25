@@ -1,7 +1,10 @@
+package exercies;
+
 import java.util.Scanner;
 
 public class Exercises {
     public static void main(String[] args) {
+        printName();
     }
 
     public static void printName() {
@@ -9,9 +12,9 @@ public class Exercises {
         String middleName = "Nikolaev";
         String lastName = "Tarkalanov";
 
-        System.out.println("First Name: " + firstName);
-        System.out.println("Middle Name: " + middleName);
-        System.out.println("Last Name: " + lastName);
+        String fullName = firstName + " " + middleName + " " + lastName;
+
+        System.out.println(fullName);
     }
 
     public static void printTrianglePerimeter() {
