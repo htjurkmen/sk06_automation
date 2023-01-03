@@ -2,7 +2,7 @@ package lecture07.exceptions;
 
 import java.io.*;
 
-public class Exercises {
+public class Examples {
     public static void main(String[] args) {
     }
 
