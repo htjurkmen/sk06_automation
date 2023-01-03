@@ -1,6 +1,6 @@
 package lecture07.constructors;
 
-public class Exercises {
+public class Examples {
     public static void main(String[] args) {
     }
 
