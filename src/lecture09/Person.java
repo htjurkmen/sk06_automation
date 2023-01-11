@@ -20,13 +20,13 @@ public class Person {
 
     public Person(String name, String sex, String religion, String language, String job, String nationality, String country, long egn) {
         this.name = name;
-        this.sex = sex;
         this.religion = religion;
         this.language = language;
         this.job = job;
         this.nationality = nationality;
         this.country = country;
-        this.egn = egn;
+        setSex(sex);
+        setEgn(egn);
         setAge(egn);
         setBirthDate(egn);
     }
@@ -38,7 +38,27 @@ public class Person {
     }
 
     private void setBirthDate(long egn) {
-        //ToDo implement me
-        this.birthDate = null;
+        String date = Long.toString(egn).substring(4, 6);
+        String month = Long.toString(egn).substring(2, 4);
+        this.birthDate = month + "-" + date;
+    }
+
+    private void setEgn(long egn) {
+        int engLength = Long.toString(egn).length();
+        if (engLength == 10) {
+            this.egn = egn;
+        } else {
+            throw new RuntimeException("The provided EGN is not valid! The EGN must contain only 10 digits!");
+        }
+    }
+
+    private void setSex(String sex) {
+        String male = "Male";
+        String female = "Female";
+
+        if (sex.equalsIgnoreCase(male) || sex.equalsIgnoreCase(female)) {
+            this.sex = sex;
+        }
+        //ToDo Implement me
     }
 }
