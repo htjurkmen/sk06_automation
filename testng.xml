@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Web test suite" verbose="1">
+    <test name="Smoke Tests">
+        <classes>
+            <class name="lecture10.examples.GroupTests"></class>
+        </classes>
+    </test>
+    <test name="Regression Tests">
+        <classes>
+            <class name="lecture10.examples.DataProviderTests"></class>
+            <class name="lecture10.examples.PriorityTests"></class>
+        </classes>
+    </test>
+</suite>
