@@ -28,7 +28,7 @@
                     <version>3.0.0-M7</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>testng-parallel.xml</suiteXmlFile>
+                            <suiteXmlFile>testng-lecture10-exercises.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

@@ -3,8 +3,8 @@
 <suite name="Web test suite" verbose="1" parallel="methods" thread-count="2">
     <test name="Parallel Tests">
         <classes>
-            <class name="lecture10.ParallelTests"></class>
-            <class name="lecture10.ParallelSecondTests"></class>
+            <class name="lecture10.examples.ParallelTests"></class>
+            <class name="lecture10.examples.ParallelSecondTests"></class>
         </classes>
     </test>
 </suite>

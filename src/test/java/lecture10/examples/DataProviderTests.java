@@ -1,4 +1,4 @@
-package lecture10;
+package lecture10.examples;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

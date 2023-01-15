@@ -3,7 +3,7 @@
 <suite name="Web test suite" verbose="1">
     <test name="Parameter Tests">
         <classes>
-            <class name="lecture10.ParametersTests">
+            <class name="lecture10.examples.ParametersTests">
                 <methods>
                     <include name="testSingleParameter">
                         <parameter name="full-name" value="Dimitar Tarkalanov"></parameter>
