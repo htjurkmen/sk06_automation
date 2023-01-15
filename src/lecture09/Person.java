@@ -2,16 +2,13 @@ package lecture09;
 
 import java.time.LocalDate;
 
-/*
-Create class Person which has the following attributes: name, sex, religion, language spoken, job, nationality, EGN, date of birth, age, country of residence.
- */
 public class Person {
-    private String name;
+    private final String name;
+    private final String religion;
+    private final String language;
+    private final String nationality;
     private String sex;
-    private String religion;
-    private String language;
     private String job;
-    private String nationality;
     private String birthDate;
     private String country;
 
@@ -53,12 +50,56 @@ public class Person {
     }
 
     private void setSex(String sex) {
+        try {
+            validateSex(sex);
+            this.sex = sex;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void validateSex(String sex) throws Exception {
         String male = "Male";
         String female = "Female";
 
-        if (sex.equalsIgnoreCase(male) || sex.equalsIgnoreCase(female)) {
-            this.sex = sex;
+        if (!sex.equalsIgnoreCase(male) && !sex.equalsIgnoreCase(female)) {
+            throw new Exception("Please provide a valid value for sex. Valid options are 'male' or 'female'");
         }
-        //ToDo Implement me
+    }
+
+    public void sayHello() {
+        System.out.println("Hello!");
+    }
+
+    public void celebrateEaster() {
+        if (religion.equalsIgnoreCase("orthodox") || religion.equalsIgnoreCase("catholic")) {
+            System.out.println("I am celebrating Easter");
+        } else {
+            System.out.println("I am not celebrating Easter");
+        }
+    }
+
+    public boolean isAdult() {
+        switch (country) {
+            case "Bulgaria":
+            case "Italy":
+                return age >= 18;
+            case "USA":
+                return age >= 21;
+            default:
+                throw new RuntimeException("We don't have information about country: " + country);
+        }
+    }
+
+    public boolean canTakeLoan() {
+        return job != null;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
