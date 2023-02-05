@@ -24,10 +24,13 @@ public class TestObject {
     public static final String TEST_RESOURCES_DIR = "src\\test\\resources\\";
     public static final String DOWNLOAD_DIR = TEST_RESOURCES_DIR.concat("download\\");
     public static final String SCREENSHOTS_DIR = TEST_RESOURCES_DIR.concat("screenshots\\");
+    public static final String REPORTS_DIR = TEST_RESOURCES_DIR.concat("reports\\");
     private WebDriver driver;
 
     @BeforeSuite
-    protected final void setupTestSuite() {
+    protected final void setupTestSuite() throws IOException {
+        cleanDirectory(REPORTS_DIR);
+        cleanDirectory(SCREENSHOTS_DIR);
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
         WebDriverManager.edgedriver().setup();
@@ -49,16 +52,20 @@ public class TestObject {
 
     @AfterSuite
     public void deleteDownloadedFiles() throws IOException {
-        File downloadDirectory = new File(DOWNLOAD_DIR);
+        cleanDirectory(DOWNLOAD_DIR);
+    }
 
-        Assert.assertTrue(downloadDirectory.isDirectory(), "The download files directory path is incorrect");
+    private void cleanDirectory(String directoryPath) throws IOException {
+        File directory = new File(directoryPath);
 
-        FileUtils.cleanDirectory(downloadDirectory);
-        String[] fileList = downloadDirectory.list();
+        Assert.assertTrue(directory.isDirectory(), "Invalid directory!");
+
+        FileUtils.cleanDirectory(directory);
+        String[] fileList = directory.list();
         if (fileList != null && fileList.length == 0) {
-            System.out.println("Downloaded files are deleted!");
+            System.out.printf("All files are deleted in Directory: %s%n", directoryPath);
         } else {
-            System.out.println("Downloaded files are NOT deleted!");
+            System.out.printf("Unable to delete the files in Directory:%s%n", directoryPath);
         }
     }
 
